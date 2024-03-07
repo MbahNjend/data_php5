@@ -1,3 +1,29 @@
+<?php
+
+include("config.php");
+
+if(!isset($_GET['id'])){
+    header('Location: data-casis.php');
+}
+
+$id = $_GET['id'];
+
+$sql = "SELECT * FROM data_casis WHERE id=$id";
+$query = mysqli_query($db,$sql);
+$siswa = mysqli_fetch_assoc($query);
+
+if(mysqli_num_rows ($query) < 1){
+    die("Accees Denied");
+}
+
+?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,0 +1,32 @@
+<?php
+include "config.php";
+
+if(isset($_POST['edit'])){
+$nama = $_POST['nama'];
+$nisn = $_POST['nisn'];
+$jk = $_POST['jenis_kelamin'];
+$alamat = $_POST['alamat'];
+$sekolah_asal = $_POST['sekolah_asal'];
+
+$sql = "UPDATE data_casis SET nama = '$nama', nisn = '$nisn', jk = '$jk', sekolah = '$sekolah_asal' WHERE id = $id";
+$query= mysqli_query($db,$sql);
+
+if($query){
+    header("location: data-casis.php");
+}else{
+    header("location: data-casis.php");
+}
+
+}
+
+
+else{
+    die("Access Denied..");
+}
+
+?>
+
+
+
+
+UPDATE `data_casis` SET `id`='[value-1]',`nama`='[value-2]',`nisn`='[value-3]',`jenis_kelamin`='[value-4]',`alamat`='[value-5]',`sekolah_asal`='[value-6]' WHERE 1

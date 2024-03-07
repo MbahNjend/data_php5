@@ -1,11 +1,22 @@
 <?php
-// Mendapatkan ID anggota yang ingin dihapus
-$id = $_GET["id"];
+include('config.php');
 
-// Query untuk menghapus data anggota
-$sql = "DELETE FROM data_casis WHERE id = $id";
+if (isset($_POST['delete'])) {
+    $id = $_POST['id'];
 
+    // Delete the record from the database
+    $sql = "DELETE FROM table_name WHERE id = $id";
+    $query = mysqli_query($db, $sql);
 
-// Redirect ke halaman daftar anggota
-header("Location: data-casis.php");
+    if ($query) {
+        $_SESSION['message'] = "Data has been deleted!";
+        header("location: index.php");
+    } else {
+        $_SESSION['message'] = "Error: Data could not be deleted!";
+        header("location: index.php");
+    }
+} else {
+    $_SESSION['message'] = "Error: Invalid request!";
+    header("location: index.php");
+}
 ?>

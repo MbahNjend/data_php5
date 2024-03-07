@@ -1,0 +1,5 @@
+
+        mysqli_query($db, "UPDATE info SET nama='$nama', nisn='$nisn', jenis_kelamin='$jk', sekolah_asal='$sekolah_asal' alamat= '$alamat' WHERE id=$id");
+        
+        $_SESSION['message'] = "Data Sudah Diupdate!";
+        header('location: index.php');
